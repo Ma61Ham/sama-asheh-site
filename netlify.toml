@@ -1,0 +1,3 @@
+[build]
+  publish = "public"    # change this to your folder
+  command = "npm run build"  # optional: your build command
