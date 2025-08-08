@@ -1,3 +1,12 @@
 [build]
-  publish = "public"    # change this to your folder
-  command = "npm run build"  # optional: your build command
+  # No build command needed for plain HTML/CSS/JS
+  command = ""
+  # Deploy everything in the repo root
+  publish = "."
+
+# Redirect all routes to index.html (SPA fallback)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
