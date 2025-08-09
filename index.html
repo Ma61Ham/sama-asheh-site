@@ -30,26 +30,6 @@
       color: #777;
     }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1rem;
-      padding: 2rem;
-    }
-
-    .gallery img {
-      width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .gallery img:hover {
-      transform: scale(1.03);
-    }
-
     .about {
       padding: 3rem 2rem;
       max-width: 800px;
@@ -85,6 +65,65 @@
       padding: 1rem;
       font-size: 0.9rem;
       color: #aaa;
+    }
+
+    /* Dropdown toggle */
+    .gallery-toggle {
+      text-align: center;
+      font-size: 1.5rem;
+      font-family: 'Playfair Display', serif;
+      cursor: pointer;
+      padding: 2rem;
+      background-color: #fff;
+      transition: background-color 0.3s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .gallery-toggle:hover {
+      background-color: #f0ede9;
+    }
+
+    .arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.rotate {
+      transform: rotate(180deg);
+    }
+
+    /* Gallery container */
+    .gallery-container {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease;
+    }
+
+    .gallery-container.open {
+      max-height: 2000px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
     }
 
     /* Lightbox styles */
@@ -152,12 +191,19 @@
     <video src="media/artshow.mp4" autoplay muted loop playsinline style="max-width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);"></video>
   </section>
 
-  <section class="gallery">
-    <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World, Bleeding Land">
-    <img src="images/Orphaned.jpg" alt="Orphaned">
-    <img src="images/Mister.PNG" alt="Mister">
-    <img src="images/Wets Hands.jpg" alt="Wets Hands">
-  </section>
+  <div class="gallery-toggle" onclick="toggleGallery()">
+    <span>Some of my artwork</span>
+    <span class="arrow" id="arrow">&#9660;</span>
+  </div>
+
+  <div class="gallery-container" id="galleryContainer">
+    <section class="gallery">
+      <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World, Bleeding Land">
+      <img src="images/Orphaned.jpg" alt="Orphaned">
+      <img src="images/Mister.PNG" alt="Mister">
+      <img src="images/Wets Hands.jpg" alt="Wets Hands">
+    </section>
+  </div>
 
   <section class="contact">
     <p>📧 <a href="mailto:sama.asheh@example.com">sama.asheh2@gmail.com</a></p>
@@ -177,6 +223,7 @@
   </div>
 
   <script>
+    // Lightbox functionality
     const galleryImages = document.querySelectorAll('.gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -213,6 +260,20 @@
         lightboxCaption.textContent = "";
       }
     });
+
+    // Gallery dropdown toggle with arrow and scroll
+    function toggleGallery() {
+      const container = document.getElementById('galleryContainer');
+      const arrow = document.getElementById('arrow');
+      container.classList.toggle('open');
+      arrow.classList.toggle('rotate');
+
+      if (container.classList.contains('open')) {
+        setTimeout(() => {
+          container.scrollIntoView({ behavior: 'smooth' });
+        }, 300);
+      }
+    }
   </script>
 
 </body>
