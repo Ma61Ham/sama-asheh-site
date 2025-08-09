@@ -1,109 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sama Asheh | Visual Artist</title>
-  <meta name="description" content="Explore the vibrant world of visual artist Sama Asheh—discover paintings, installations, and upcoming exhibitions.">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sama Asheh – Artist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background-color: #fdfaf6;
+      color: #333;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background-color: #fff;
+    }
+
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .about {
+      padding: 3rem 2rem;
+      max-width: 800px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .about p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .contact {
+      text-align: center;
+      padding: 2rem;
+      background-color: #fff;
+    }
+
+    .contact a {
+      color: #333;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+  </style>
 </head>
 <body>
 
   <header>
-    <nav class="navbar">
-      <a href="#" class="logo">Sama Asheh</a>
-      <button class="menu-toggle" aria-label="Toggle menu">☰</button>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
+    <h1>Sama Asheh</h1>
+    <p>Visual Artist & Dreamweaver</p>
   </header>
 
-  <section id="home" class="hero">
-    <div class="hero-content">
-      <h1>Sama Asheh</h1>
-      <p>Translating emotion into color and form</p>
-      <a href="#gallery" class="btn">View Gallery</a>
-    </div>
+  <section class="gallery">
+    <img src="images/artwork1.JPG" alt="Artwork 1">
+    <img src="images/artwork2.JPG" alt="Artwork 2">
+    <img src="images/exhibit1.JPG" alt="Artwork 3">
   </section>
 
-  <section id="about" class="about">
+  <section class="about">
     <h2>About Sama</h2>
-    <p>Based in Marietta, GA, Sama Asheh blends cultural storytelling with abstract expression to create captivating visual narratives. With exhibitions across the Southeast, her work explores identity, memory, and transformation.</p>
-  </section>
-
-  <section id="gallery" class="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <div class="gallery-item">
-        <img src="images/artwork1.jpg" alt="Artwork 1">
-        <div class="overlay">
-          <h3>Artwork 1</h3>
-          <p>2024 • Acrylic on Canvas</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img src="images/artwork2.jpg" alt="Artwork 2">
-        <div class="overlay">
-          <h3>Artwork 2</h3>
-          <p>2023 • Mixed Media</p>
-        </div>
-      </div>
-      <!-- add more items as needed -->
-    </div>
-  </section>
-
-  <section id="projects" class="projects">
-    <h2>Projects & Exhibitions</h2>
-    <div class="project-cards">
-      <div class="card">
-        <img src="images/exhibit1.jpg" alt="Downtown Art Space Exhibit">
-        <h3>Downtown Art Space</h3>
-        <p>March 2025 • Downtown Art Space</p>
-        <button class="btn open-modal">Details</button>
-      </div>
-      <!-- more cards -->
-    </div>
-  </section>
-
-  <section id="blog" class="blog">
-    <h2>News & Insights</h2>
-    <article>
-      <h3>Reflections on Creativity</h3>
-      <p>In this post, Sama dives into her process of discovering color landscapes and emotional textures.</p>
-      <a href="blog/post1.html">Read More →</a>
-    </article>
-    <!-- more posts -->
-  </section>
-
-  <section id="contact" class="contact">
-    <h2>Get in Touch</h2>
-    <form action="submit-form.php" method="post">
-      <label for="name">Name</label>
-      <input id="name" type="text" name="name" required>
-      <label for="email">Email</label>
-      <input id="email" type="email" name="email" required>
-      <label for="message">Message</label>
-      <textarea id="message" name="message" required></textarea>
-      <button type="submit" class="btn">Send</button>
-    </form>
-    <p class="social">
-      Follow on  
-      <a href="#">Instagram</a>  
-      <a href="#">Facebook</a>  
-      <a href="#">Twitter</a>
+    <p>
+      Sama Asheh is a multidisciplinary artist whose work explores emotion, memory, and the unseen. Her pieces blend texture, light, and form to evoke a sense of quiet wonder. Based in Marietta, GA, Sama’s art invites viewers into a world of introspection and beauty.
     </p>
   </section>
 
+  <section class="contact">
+    <p>📧 <a href="mailto:sama.asheh@example.com">sama.asheh@example.com</a></p>
+    <p>📷 <a href="https://instagram.com/sama_asheh" target="_blank">Instagram</a></p>
+  </section>
+
   <footer>
-    <p>© 2025 Sama Asheh. All Rights Reserved.</p>
+    &copy; 2025 Sama Asheh. All rights reserved.
   </footer>
 
-  <script src="scripts.js"></script>
 </body>
 </html>
