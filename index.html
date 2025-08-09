@@ -171,6 +171,13 @@
       color: #fff;
       cursor: pointer;
     }
+
+    .contact img {
+      transition: transform 0.3s ease;
+    }
+    .contact img:hover {
+      transform: scale(1.1);
+    }
   </style>
 </head>
 <body>
@@ -241,11 +248,20 @@
   </form>
 </section>
   
-  <section class="contact">
-    <p>📧 <a href="mailto:sama.asheh@example.com">sama.asheh2@gmail.com</a></p>
-    <p>📷 <a href="https://instagram.com/sama_asheh" target="_blank">Instagram</a></p>
-    <p>📷 <a href="https://tiktok.com/@sama.asheh1" target="_blank">Tiktok</a></p>
-  </section>
+<section class="contact">
+  <div style="display: flex; justify-content: center; gap: 2rem; align-items: center; flex-wrap: wrap;">
+    <a href="mailto:sama.asheh2@gmail.com" target="_blank">
+      <img src="images/gmail.gif" alt="Email Sama Asheh" style="height: 40px;">
+    </a>
+    <a href="https://instagram.com/sama_asheh" target="_blank">
+      <img src="images/instagram.gif" alt="Instagram" style="height: 40px;">
+    </a>
+    <a href="https://tiktok.com/@sama.asheh1" target="_blank">
+      <img src="images/tiktok.gif" alt="TikTok" style="height: 40px;">
+    </a>
+  </div>
+</section>
+
 
   <footer>
     &copy; 2025 Sama Asheh. All rights reserved.
