@@ -1,53 +1,91 @@
 <!DOCTYPE html>
+<!-- Declare document type as HTML5 -->
 <html lang="en">
+<!-- Root element; language set to English -->
+
 <head>
+  <!-- Metadata and resources loaded in the document head -->
+
   <meta charset="UTF-8" />
+  <!-- Character encoding for the document -->
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Ensures proper scaling on mobile devices -->
+
   <title>Sama Asheh – Artist</title>
+  <!-- Page title shown in browser tab -->
+
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+  <!-- Import Google Fonts: Playfair Display & Inter -->
+
   <style>
+    /* Global styles for the entire page */
     body {
       margin: 0;
+      /* Remove default margin */
       font-family: Georgia, serif;
+      /* Use Georgia font for body text */
       background-color: #fdfaf6;
+      /* Light cream background */
       color: #333;
+      /* Dark gray text for readability */
     }
 
+    /* Header section styling */
     header {
       text-align: center;
+      /* Center-align text */
       padding: 4rem 1rem;
+      /* Vertical & horizontal padding */
       background-color: #fff;
+      /* White background behind header */
     }
 
+    /* Main heading style inside header */
     header h1 {
       font-family: 'Playfair Display', serif;
+      /* Decorative serif font for titles */
       font-size: 3rem;
+      /* Large font size */
       margin-bottom: 0.5rem;
+      /* Small gap below heading */
     }
 
+    /* Subheading / tagline in header */
     header p {
       font-size: 1.2rem;
+      /* Slightly larger than base text */
       color: #777;
+      /* Lighter gray for less emphasis */
     }
 
+    /* About section container */
     .about {
       padding: 3rem 2rem;
+      /* Space inside the about section */
       max-width: 800px;
+      /* Limit width for readability */
       margin: auto;
+      /* Center horizontally */
       text-align: center;
+      /* Center text */
     }
 
+    /* Secondary heading in About */
     .about h2 {
       font-family: 'Playfair Display', serif;
       font-size: 2rem;
       margin-bottom: 1rem;
     }
 
+    /* Paragraph style in About */
     .about p {
       font-size: 1.1rem;
       line-height: 1.6;
+      /* Comfortable line spacing */
     }
 
+    /* Contact links section */
     .contact {
       text-align: center;
       padding: 2rem;
@@ -56,18 +94,22 @@
 
     .contact a {
       color: #333;
+      /* Dark link color */
       text-decoration: none;
+      /* Remove underline */
       font-weight: bold;
     }
 
+    /* Footer at bottom of page */
     footer {
       text-align: center;
       padding: 1rem;
       font-size: 0.9rem;
       color: #aaa;
+      /* Light gray text */
     }
 
-    /* Dropdown toggle */
+    /* Dropdown toggle button for gallery */
     .gallery-toggle {
       text-align: center;
       font-size: 1.5rem;
@@ -84,8 +126,10 @@
 
     .gallery-toggle:hover {
       background-color: #f0ede9;
+      /* Slight hover highlight */
     }
 
+    /* Arrow icon rotation */
     .arrow {
       display: inline-block;
       transition: transform 0.3s ease;
@@ -93,19 +137,22 @@
 
     .arrow.rotate {
       transform: rotate(180deg);
+      /* Rotate arrow when open */
     }
 
-    /* Gallery container */
+    /* Initially hide gallery */
     .gallery-container {
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.5s ease;
     }
 
+    /* Expand gallery when open */
     .gallery-container.open {
       max-height: 2000px;
     }
 
+    /* Grid layout for gallery images */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -113,6 +160,7 @@
       padding: 2rem;
     }
 
+    /* Individual gallery image styling */
     .gallery img {
       width: 100%;
       height: auto;
@@ -124,9 +172,10 @@
 
     .gallery img:hover {
       transform: scale(1.03);
+      /* Slight zoom on hover */
     }
 
-    /* Lightbox styles */
+    /* Lightbox modal overlay */
     .lightbox {
       position: fixed;
       top: 0; left: 0;
@@ -144,11 +193,13 @@
       text-align: center;
     }
 
+    /* Show lightbox when visible */
     .lightbox.visible {
       opacity: 1;
       pointer-events: auto;
     }
 
+    /* Image inside lightbox */
     .lightbox img {
       max-width: 90%;
       max-height: 80%;
@@ -156,6 +207,7 @@
       border-radius: 8px;
     }
 
+    /* Caption below lightbox image */
     .lightbox .caption {
       margin-top: 1rem;
       color: #fdfaf6;
@@ -163,6 +215,7 @@
       font-family: 'Playfair Display', serif;
     }
 
+    /* Close button in lightbox */
     .lightbox .close {
       position: absolute;
       top: 2rem;
@@ -172,6 +225,7 @@
       cursor: pointer;
     }
 
+    /* Hover effect for contact icons */
     .contact img {
       transition: transform 0.3s ease;
     }
@@ -180,29 +234,41 @@
     }
   </style>
 </head>
-<body>
 
+<body>
+  <!-- Page header with site title and tagline -->
   <header>
     <h1>Sama Asheh</h1>
     <p>Visual Artist & Dreamweaver</p>
   </header>
 
+  <!-- About section introducing the artist -->
   <section class="about">
     <h2>About Sama</h2>
-    <p><i>
-      Sama Asheh is a Palestinian artist with a love for capturing people's stories through art. I started drawing strangers in public places, gifting them their portraits without expecting anything in return. For me, art is a bridge no words, just a pencil and a litte kindness. My work is inspired by real moments, human connections, and the beauty of everyday life. Now based in Atlanta, I continue to create portraits, murals, and custom artwork, sharing pieces of my heart with every stroke.
-    </i></p>
+    <p>
+      <i>Sama Asheh is a Palestinian artist with a love for capturing people's stories through art. I started drawing strangers in public places, gifting them their portraits without expecting anything in return. For me, art is a bridge—no words, just a pencil and a little kindness. My work is inspired by real moments, human connections, and the beauty of everyday life. Now based in Atlanta, I continue to create portraits, murals, and custom artwork, sharing pieces of my heart with every stroke.</i>
+    </p>
   </section>
 
+  <!-- Video showcase -->
   <section style="text-align:center; padding: 2rem;">
-    <video src="media/artshow.mp4" autoplay muted loop playsinline style="max-width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);"></video>
+    <video
+      src="media/artshow.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      style="max-width:100%; border-radius:12px; box-shadow:0 4px 10px rgba(0,0,0,0.1);">
+    </video>
   </section>
 
+  <!-- Button to toggle the gallery open/closed -->
   <div class="gallery-toggle" onclick="toggleGallery()">
     <span>Beyond the Frame</span>
     <span class="arrow" id="arrow">&#9660;</span>
   </div>
 
+  <!-- Collapsible gallery container -->
   <div class="gallery-container" id="galleryContainer">
     <section class="gallery">
       <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World, Bleeding Land">
@@ -212,57 +278,67 @@
     </section>
   </div>
 
+  <!-- Artwork request form -->
   <section class="request-artwork" style="padding: 3rem 2rem; background-color: #fff; text-align: center;">
-  <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">Request an Artwork</h2>
-  <p style="font-size: 1.1rem; margin-bottom: 2rem;">Interested in a custom piece? Fill out the form below and Sama will get back to you.</p>
+    <h2 style="font-family: 'Playfair Display', serif; font-size: 2rem; margin-bottom: 1rem;">Request an Artwork</h2>
+    <p style="font-size: 1.1rem; margin-bottom: 2rem;">Interested in a custom piece? Fill out the form below and Sama will get back to you.</p>
 
-  <form id="artRequestForm" onsubmit="return sendRequestEmail()" style="max-width: 600px; margin: auto; text-align: left;">
-    <label for="name">Your Name</label><br>
-    <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+    <form id="artRequestForm" onsubmit="return sendRequestEmail()" style="max-width: 600px; margin: auto; text-align: left;">
+      <!-- User name input -->
+      <label for="name">Your Name</label><br>
+      <input type="text" id="name" name="name" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
 
-    <label for="email">Your Email</label><br>
-    <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
+      <!-- User email input -->
+      <label for="email">Your Email</label><br>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"><br>
 
-    <label for="description">Artwork Description</label><br>
-    <textarea id="description" name="description" rows="5" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea><br>
+      <!-- Artwork description textarea -->
+      <label for="description">Artwork Description</label><br>
+      <textarea id="description" name="description" rows="5" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;"></textarea><br>
 
-    <label for="payment">Preferred Payment Method</label><br>
-    <select id="payment" name="payment" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
-      <option value="">Select one</option>
-      <option value="PayPal">PayPal</option>
-      <option value="Venmo">Venmo</option>
-      <option value="Zelle">Zelle</option>
-      <option value="Apple Pay">Apple Pay</option>
-      <option value="Cash App">Cash App</option>
-    </select>
+      <!-- Payment method dropdown -->
+      <label for="payment">Preferred Payment Method</label><br>
+      <select id="payment" name="payment" required style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;">
+        <option value="">Select one</option>
+        <option value="PayPal">PayPal</option>
+        <option value="Venmo">Venmo</option>
+        <option value="Zelle">Zelle</option>
+        <option value="Apple Pay">Apple Pay</option>
+        <option value="Cash App">Cash App</option>
+      </select>
 
-    <div style="display: flex; justify-content: space-around; align-items: center; margin: 1rem 0;">
-      <img src="images/paypal.png" alt="PayPal" style="height: 32px;">
-      <img src="images/venmo.png" alt="Venmo" style="height: 32px;">
-      <img src="images/zelle.png" alt="Zelle" style="height: 32px;">
-      <img src="images/applepay.png" alt="Apple Pay" style="height: 32px;">
-      <img src="images/cashapp.png" alt="Cash App" style="height: 32px;">
+      <!-- Payment icons for quick reference -->
+      <div style="display: flex; justify-content: space-around; align-items: center; margin: 1rem 0;">
+        <img src="images/paypal.png" alt="PayPal" style="height: 32px;">
+        <img src="images/venmo.png" alt="Venmo" style="height: 32px;">
+        <img src="images/zelle.png" alt="Zelle" style="height: 32px;">
+        <img src="images/applepay.png" alt="Apple Pay" style="height: 32px;">
+        <img src="images/cashapp.png" alt="Cash App" style="height: 32px;">
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" style="padding: 0.75rem 1.5rem; font-size: 1rem; background-color: #333; color: #fff; border: none; border-radius: 6px; cursor: pointer;">
+        Send Request
+      </button>
+    </form>
+  </section>
+
+  <!-- Social/contact icons -->
+  <section class="contact">
+    <div style="display: flex; justify-content: center; gap: 2rem; align-items: center; flex-wrap: wrap;">
+      <a href="mailto:sama.asheh2@gmail.com" target="_blank">
+        <img src="images/gmail.gif" alt="Email Sama Asheh" style="height: 40px;">
+      </a>
+      <a href="https://instagram.com/sama_asheh" target="_blank">
+        <img src="images/instagram.gif" alt="Instagram" style="height: 40px;">
+      </a>
+      <a href="https://tiktok.com/@sama.asheh1" target="_blank">
+        <img src="images/tiktok.gif" alt="TikTok" style="height: 40px;">
+      </a>
     </div>
+  </section>
 
-    <button type="submit" style="padding: 0.75rem 1.5rem; font-size: 1rem; background-color: #333; color: #fff; border: none; border-radius: 6px; cursor: pointer;">Send Request</button>
-  </form>
-</section>
-  
-<section class="contact">
-  <div style="display: flex; justify-content: center; gap: 2rem; align-items: center; flex-wrap: wrap;">
-    <a href="mailto:sama.asheh2@gmail.com" target="_blank">
-      <img src="images/gmail.gif" alt="Email Sama Asheh" style="height: 40px;">
-    </a>
-    <a href="https://instagram.com/sama_asheh" target="_blank">
-      <img src="images/instagram.gif" alt="Instagram" style="height: 40px;">
-    </a>
-    <a href="https://tiktok.com/@sama.asheh1" target="_blank">
-      <img src="images/tiktok.gif" alt="TikTok" style="height: 40px;">
-    </a>
-  </div>
-</section>
-
-
+  <!-- Footer with copyright -->
   <footer>
     &copy; 2025 Sama Asheh. All rights reserved.
   </footer>
@@ -275,13 +351,14 @@
   </div>
 
   <script>
-    // Lightbox functionality
+    // Select all gallery images for lightbox activation
     const galleryImages = document.querySelectorAll('.gallery img');
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
     const lightboxCaption = document.getElementById('lightbox-caption');
     const closeBtn = document.querySelector('.close');
 
+    // Open lightbox on image click
     galleryImages.forEach(img => {
       img.addEventListener('click', () => {
         lightboxImg.src = img.src;
@@ -291,12 +368,14 @@
       });
     });
 
+    // Close lightbox on close button click
     closeBtn.addEventListener('click', () => {
       lightbox.classList.remove('visible');
       lightboxImg.src = "";
       lightboxCaption.textContent = "";
     });
 
+    // Close lightbox if clicking outside the image
     lightbox.addEventListener('click', (e) => {
       if (e.target === lightbox) {
         lightbox.classList.remove('visible');
@@ -305,6 +384,7 @@
       }
     });
 
+    // Close lightbox on ESC key
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         lightbox.classList.remove('visible');
@@ -313,13 +393,14 @@
       }
     });
 
-    // Gallery dropdown toggle with arrow and scroll
+    // Toggle gallery visibility and rotate arrow
     function toggleGallery() {
       const container = document.getElementById('galleryContainer');
       const arrow = document.getElementById('arrow');
       container.classList.toggle('open');
       arrow.classList.toggle('rotate');
 
+      // Smooth scroll to gallery when opening
       if (container.classList.contains('open')) {
         setTimeout(() => {
           container.scrollIntoView({ behavior: 'smooth' });
@@ -327,7 +408,7 @@
       }
     }
 
-    // Artwork request email handler
+    // Handle artwork request form submission via mailto
     function sendRequestEmail() {
       const name = document.getElementById('name').value.trim();
       const email = document.getElementById('email').value.trim();
@@ -336,13 +417,13 @@
 
       const subject = encodeURIComponent("Artwork Request from " + name);
       const body = encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nArtwork Description:\n${description}\n\nPreferred Payment Method: ${payment}`
-    );
+        `Name: ${name}\nEmail: ${email}\n\nArtwork Description:\n${description}\n\nPreferred Payment Method: ${payment}`
+      );
 
-    window.location.href = `mailto:sama.asheh2@gmail.com?subject=${subject}&body=${body}`;
-    return false;
+      // Open user's email client with prefilled fields
+      window.location.href = `mailto:sama.asheh2@gmail.com?subject=${subject}&body=${body}`;
+      return false; // Prevent actual form submission
     }
   </script>
-
 </body>
 </html>
