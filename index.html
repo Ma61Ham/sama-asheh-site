@@ -148,13 +148,6 @@
 
     footer#site-footer { text-align: center; padding: 1.25rem; color: #9a9a9a; font-size: 0.95rem; }
 
-    /* ---------- Custom cursor (glowing brush-tip) ---------- */
-    /* Create a small circular brush-like cursor using pseudo-element on body when JS toggles .cursor-brush-active */
-    .cursor-brush { position: fixed; width: 14px; height: 22px; border-radius: 6px 6px 2px 8px; pointer-events: none; transform: translate(-50%, -50%) scale(1); transition: transform 0.12s ease, background 0.18s ease, box-shadow 0.18s ease; z-index: 10000; mix-blend-mode: normal; box-shadow: 0 6px 16px rgba(197,137,255,0.18); }
-    .cursor-brush--glow { background: radial-gradient(circle at 35% 20%, #ffd4d4 0%, #cdb4ff 50%); }
-    /* When pressing (mousedown) scale down to simulate dipping the brush */
-    .cursor-brush--active-press { transform: translate(-50%, -50%) scale(0.86); }
-
     /* Make interactive areas change cursor styling via JS by toggling class on body (see JS) */
     /* ---------- End of CSS ---------- */
   </style>
