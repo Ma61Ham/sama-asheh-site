@@ -1,99 +1,463 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Sama Asheh - Ultra Cool Edition</title>
-<style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #f0f4ff, #fef9f3);
-  color: #333;
-  overflow-x: hidden;
-}
-/* Cool animated background gradient */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-body {
-  background: linear-gradient(270deg, #ffecd2, #fcb69f, #ffecd2);
-  background-size: 600% 600%;
-  animation: gradientMove 15s ease infinite;
-}
-/* Gallery styling */
-.gallery-item {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-  transform: scale(1);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-.gallery-item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0,0,0,0.3);
-}
-.gallery-item img {
-  display: block;
-  width: 100%;
-  height: auto;
-  transition: transform 0.5s ease;
-}
-.gallery-item:hover img {
-  transform: scale(1.1);
-}
-.gallery-item span {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0,0,0,0.6);
-  color: #fff;
-  padding: 0.5rem;
-  font-size: 1rem;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(100%);
-  transition: opacity 0.4s ease, transform 0.4s ease;
-}
-.gallery-item:hover span {
-  opacity: 1;
-  transform: translateY(0);
-}
-/* Fade-up animation for elements */
-.fade-up {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.8s ease, transform 0.8s ease;
-}
-.fade-up.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-</style>
-</head>
-<body>
-<h1 class="fade-up">Welcome to Sama Asheh</h1>
-<!-- Example gallery item -->
-<div class="gallery-item fade-up">
-  <img src="your-image.jpg" alt="Artwork description" />
-  <span>Artwork Title</span>
-</div>
-<script>
-// Reveal on scroll effect
-const revealElements = document.querySelectorAll('.fade-up');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
+  <!-- Character encoding: ensures special characters render correctly -->
+  <meta charset="UTF-8">
+  <!-- Responsive viewport so layout scales on mobile devices -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Page title shown in browser tab -->
+  <title>Sama Asheh – Artist</title>
 
-revealElements.forEach(el => observer.observe(el));
-</script>
+  <!-- Google Fonts: Playfair Display (serif) for headings and Inter for UI if needed -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&family=Inter&display=swap" rel="stylesheet">
+
+  <!--
+    Inline CSS for a single-file deployment.
+    Extensive comments included so you can understand what each block/line does.
+  -->
+  <style>
+    /* ------------------------- GLOBAL / RESET ------------------------- */
+    /* Remove default body margin and set base fonts + colors */
+    body { margin: 0; /* no page margin */
+      font-family: Georgia, serif; /* fallback body font */
+      background-color: #fdfaf6; /* soft cream base */
+      color: #333; /* main text color */
+      overflow-x: hidden; /* prevent horizontal scroll from transforms */
+    }
+
+    /* Use Playfair for headings to preserve your original look */
+    h1, h2 { font-family: 'Playfair Display', serif; }
+
+    /* ------------------------- WATERCOLOUR BACKGROUND ------------------------- */
+    /* A subtle, animated watercolor-like backdrop that sits behind content. */
+    /* We use an absolutely positioned element so it does not affect layout flow. */
+    .bg-watercolor {
+      position: fixed; /* stay put while scrolling */
+      inset: 0; /* top:0; right:0; bottom:0; left:0 */
+      z-index: 0; /* behind all content */
+      pointer-events: none; /* allow clicks through */
+      overflow: hidden; /* hide overflow of animated shapes */
+    }
+
+    /* Each layer is blurred and has gentle animation to evoke watercolor movement */
+    .bg-watercolor .layer {
+      position: absolute; /* place freely inside the container */
+      width: 120%; /* slightly larger than viewport for smooth edges */
+      height: 120%;
+      top: -10%; left: -10%;
+      filter: blur(40px); /* soft edges like watercolor */
+      opacity: 0.25; /* subtle strength */
+      transform-origin: center;
+      mix-blend-mode: screen; /* beautiful color blending */
+      animation: float 18s linear infinite; /* slow continuous motion */
+    }
+
+    /* Slightly different durations/delays for multiple layers to avoid sync */
+    .bg-watercolor .layer.a { background: radial-gradient(circle at 20% 30%, #ffd4d4 0%, transparent 30%), radial-gradient(circle at 80% 70%, #fff1c9 0%, transparent 30%); animation-duration: 20s; }
+    .bg-watercolor .layer.b { background: radial-gradient(circle at 10% 80%, #e6f7ff 0%, transparent 30%), radial-gradient(circle at 70% 20%, #e8d4ff 0%, transparent 30%); animation-duration: 26s; animation-delay: -4s; }
+    .bg-watercolor .layer.c { background: radial-gradient(circle at 50% 50%, #fef6e6 0%, transparent 40%), radial-gradient(circle at 30% 20%, #ffdfe6 0%, transparent 30%); animation-duration: 22s; animation-delay: -8s; }
+
+    /* Keyframe for slow drift + gentle scale change */
+    @keyframes float {
+      0% { transform: translate3d(0,0,0) scale(1); }
+      50% { transform: translate3d(6%, -3%, 0) scale(1.03); }
+      100% { transform: translate3d(0,0,0) scale(1); }
+    }
+
+    /* Ensure actual content sits above the watercolor background */
+    main, header, footer, section { position: relative; z-index: 1; }
+
+    /* ------------------------- HEADER ------------------------- */
+    /* White-ish gradient header with centered text and entrance animation */
+    header {
+      text-align: center; /* center the title/tagline */
+      padding: 4rem 1rem; /* vertical and horizontal padding */
+      background: linear-gradient(135deg, rgba(255,255,255,0.95), rgba(249,245,240,0.9)); /* soft gradient */
+      -webkit-backdrop-filter: blur(2px); /* slight backdrop blur on supported browsers */
+      backdrop-filter: blur(2px);
+    }
+
+    /* Big title style */
+    header h1 { font-size: 3rem; margin: 0 0 0.5rem 0; /* space below */
+      animation: float-in 0.9s ease both; /* entrance animation */ }
+
+    /* Tagline style */
+    header p { font-size: 1.15rem; color: #6b6b6b; margin: 0; animation: float-in 1.1s ease both; }
+
+    /* Small float-in keyframe used for header elements */
+    @keyframes float-in { from { opacity: 0; transform: translateY(-12px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* ------------------------- GENERIC SECTION / CONTAINERS ------------------------- */
+    /* Centered containers with maximum width for better readability */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 1rem; }
+
+    /* Sections use comfortable vertical padding */
+    section { padding: 2.5rem 0; }
+
+    /* ------------------------- FADE-UP ON SCROLL ------------------------- */
+    /* Utility class: element starts slightly translated and invisible, becomes visible when .visible is added */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ------------------------- GALLERY TOGGLE ------------------------- */
+    /* Toggle area (button-like) for opening/closing the gallery */
+    .gallery-toggle {
+      text-align: center; font-size: 1.25rem; cursor: pointer; padding: 1.5rem; background-color: rgba(255,255,255,0.9);
+      display: flex; justify-content: center; align-items: center; gap: 0.6rem; border-top: 1px solid rgba(0,0,0,0.04); border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .gallery-toggle:hover { background-color: #f8f6f3; }
+    .arrow { display: inline-block; transition: transform 0.35s ease; }
+    .arrow.rotate { transform: rotate(180deg); }
+
+    /* ------------------------- GALLERY GRID ------------------------- */
+    .gallery-container { max-height: 0; overflow: hidden; transition: max-height 0.6s ease; }
+    .gallery-container.open { max-height: 2400px; /* big value to allow expansion */ }
+
+    .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; padding: 1.5rem 0; }
+
+    /* Each gallery-item wraps the image and the hover caption */
+    .gallery-item { position: relative; overflow: hidden; border-radius: 10px; }
+    .gallery-item img { display: block; width: 100%; height: auto; transition: transform 0.45s cubic-bezier(.2,.9,.2,1), filter 0.35s ease; box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+
+    /* Slight tilt + zoom on hover for a tactile feel */
+    .gallery-item:hover img { transform: scale(1.06) rotate(0.6deg); }
+
+    /* Hover caption - hidden by default, fades in on hover */
+    .gallery-item .caption { position: absolute; left: 0; right: 0; bottom: 0; padding: 0.6rem 0; text-align: center; background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.55) 100%); color: #fff; font-size: 1rem; opacity: 0; transform: translateY(6px); transition: opacity 0.25s ease, transform 0.25s ease; }
+    .gallery-item:hover .caption { opacity: 1; transform: translateY(0); }
+
+    /* ------------------------- LIGHTBOX / MODAL ------------------------- */
+    /* Fullscreen overlay for viewing images */
+    .lightbox { position: fixed; inset: 0; display: flex; justify-content: center; align-items: center; background: rgba(0,0,0,0.86); z-index: 9999; opacity: 0; pointer-events: none; transition: opacity 0.25s ease; padding: 2rem; }
+    .lightbox.visible { opacity: 1; pointer-events: auto; }
+
+    /* Image inside the lightbox scales down on small screens */
+    .lightbox img { max-width: 92%; max-height: 78%; border-radius: 8px; box-shadow: 0 40px 80px rgba(0,0,0,0.6); }
+
+    /* Caption + controls */
+    .lightbox .caption { margin-top: 1rem; color: #fff; font-family: 'Playfair Display', serif; }
+    .lightbox .close, .lightbox .nav { position: absolute; color: #fff; font-size: 2.2rem; cursor: pointer; user-select: none; }
+    .lightbox .close { top: 1.25rem; right: 1.25rem; }
+    .lightbox .nav.prev { left: 1.25rem; top: 50%; transform: translateY(-50%); }
+    .lightbox .nav.next { right: 1.25rem; top: 50%; transform: translateY(-50%); }
+
+    /* Small-screen adjustments */
+    @media (max-width: 600px) {
+      header h1 { font-size: 2rem; }
+      .lightbox .close, .lightbox .nav { font-size: 1.6rem; }
+    }
+
+    /* ------------------------- REQUEST FORM STYLING ------------------------- */
+    /* Keep form clean and readable */
+    form { background: transparent; }
+    input[type="text"], input[type="email"], textarea, select { width: 100%; padding: 0.6rem; border-radius: 6px; border: 1px solid rgba(0,0,0,0.12); box-sizing: border-box; font-family: inherit; }
+    label { display: block; margin-bottom: 0.35rem; font-weight: 600; }
+    .submit-btn { padding: 0.75rem 1.25rem; background: #333; color: #fff; border: none; border-radius: 8px; cursor: pointer; transition: transform 0.18s ease, background 0.18s ease; }
+    .submit-btn:hover { transform: translateY(-3px); background: #444; }
+
+    /* ------------------------- CONTACT ICONS ------------------------- */
+    /* Small icons for email / socials with gentle hover effect */
+    .socials { display: flex; justify-content: center; gap: 1.25rem; align-items: center; }
+    .socials img { height: 44px; width: auto; transition: transform 0.26s ease, filter 0.26s ease; }
+    .socials img:hover { transform: scale(1.08); filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12)); }
+
+    /* ------------------------- FOOTER ------------------------- */
+    footer { text-align: center; padding: 1.25rem; color: #9a9a9a; font-size: 0.95rem; }
+  </style>
+</head>
+
+<body>
+  <!-- WATERCOLOUR BACKDROP: three animated layers for depth -->
+  <div class="bg-watercolor" aria-hidden="true">
+    <!-- Layer A: warm pinks + cream -->
+    <div class="layer a"></div>
+    <!-- Layer B: cool blues + lilac -->
+    <div class="layer b"></div>
+    <!-- Layer C: soft highlights -->
+    <div class="layer c"></div>
+  </div>
+
+  <!-- HEADER: site title + tagline -->
+  <header>
+    <!-- Main title: keep original text exactly as requested -->
+    <h1>Sama Asheh</h1>
+    <!-- Tagline: original text preserved -->
+    <p>Visual Artist & Dreamweaver</p>
+  </header>
+
+  <!-- MAIN CONTENT AREA (semantic) -->
+  <main class="container">
+
+    <!-- ABOUT SECTION: preserve original content text exactly -->
+    <section class="about fade-up">
+      <!-- Section heading -->
+      <h2>About Sama</h2>
+      <!-- Paragraph: original about text (italicized) -->
+      <p><i>Sama Asheh is a Palestinian artist with a love for capturing people's stories through art. I started drawing strangers in public places, gifting them their portraits without expecting anything in return. For me, art is a bridge—no words, just a pencil and a little kindness. My work is inspired by real moments, human connections, and the beauty of everyday life. Now based in Atlanta, I continue to create portraits, murals, and custom artwork, sharing pieces of my heart with every stroke.</i></p>
+    </section>
+
+    <!-- VIDEO SHOWCASE: use the exact src from the original site -->
+    <section class="fade-up" style="text-align:center; padding: 1.5rem 0;">
+      <!-- The video autoplays muted and loops to show a short reel -->
+      <video src="media/artshow.mp4" autoplay muted loop playsinline
+        style="max-width:100%; border-radius:12px; box-shadow:0 6px 18px rgba(0,0,0,0.08);">
+        <!-- Note: browsers may block autoplay if not muted -->
+      </video>
+    </section>
+
+    <!-- GALLERY TOGGLE: reveals the collapsible gallery -->
+    <div class="gallery-toggle" onclick="toggleGallery()" aria-controls="galleryContainer" aria-expanded="false">
+      <!-- Text label (keeps original) -->
+      <span>Beyond the Frame</span>
+      <!-- Arrow icon that rotates when open -->
+      <span class="arrow" id="arrow">&#9660;</span>
+    </div>
+
+    <!-- COLLAPSIBLE GALLERY: images and captions preserved using original filenames -->
+    <div class="gallery-container" id="galleryContainer">
+      <section class="gallery fade-up" aria-live="polite">
+        <!-- Each item wraps an img + caption for hover and screen readers -->
+        <div class="gallery-item">
+          <!-- image source kept exactly as you provided -->
+          <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World, Bleeding Land">
+          <!-- visible caption on hover -->
+          <div class="caption">Blind World, Bleeding Land</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/Orphaned.jpg" alt="Orphaned">
+          <div class="caption">Orphaned</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/Mister.PNG" alt="Mister">
+          <div class="caption">Mister</div>
+        </div>
+
+        <div class="gallery-item">
+          <img src="images/Wets Hands.jpg" alt="Surviving Hands">
+          <div class="caption">Surviving Hands</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- REQUEST FORM: preserved fields and logic; will open email client on submit -->
+    <section class="fade-up" style="padding: 2.25rem 0; background-color: rgba(255,255,255,0.6); border-radius: 8px; margin: 1.5rem 0;">
+      <h2 style="margin-top:0;">Request an Artwork</h2>
+      <p>Interested in a custom piece? Fill out the form below and Sama will get back to you.</p>
+
+      <!-- Form: uses JavaScript mailto to prefill an email when submitted -->
+      <form id="artRequestForm" onsubmit="return sendRequestEmail()" aria-label="Request an artwork form" style="max-width: 700px; margin: 0 auto; text-align: left;">
+        <!-- Label + input for name -->
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required>
+
+        <!-- Label + input for email -->
+        <label for="email" style="margin-top:0.75rem;">Your Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <!-- Label + textarea for artwork description -->
+        <label for="description" style="margin-top:0.75rem;">Artwork Description</label>
+        <textarea id="description" name="description" rows="5" required></textarea>
+
+        <!-- Payment method select: original options preserved -->
+        <label for="payment" style="margin-top:0.75rem;">Preferred Payment Method</label>
+        <select id="payment" name="payment" required>
+          <option value="">Select one</option>
+          <option value="PayPal">PayPal</option>
+          <option value="Venmo">Venmo</option>
+          <option value="Zelle">Zelle</option>
+          <option value="Apple Pay">Apple Pay</option>
+          <option value="Cash App">Cash App</option>
+        </select>
+
+        <!-- Payment icons (visual only) kept as in original -- ensure these files exist in images/ -->
+        <div style="display:flex; justify-content:space-around; align-items:center; margin: 1rem 0;">
+          <img src="images/paypal.png" alt="PayPal" style="height:32px;">
+          <img src="images/venmo.png" alt="Venmo" style="height:32px;">
+          <img src="images/zelle.png" alt="Zelle" style="height:32px;">
+          <img src="images/applepay.png" alt="Apple Pay" style="height:32px;">
+          <img src="images/cashapp.png" alt="Cash App" style="height:32px;">
+        </div>
+
+        <!-- Submit button preserved -- clicking triggers JS handler -->
+        <button type="submit" class="submit-btn">Send Request</button>
+      </form>
+    </section>
+
+    <!-- CONTACT / SOCIAL ICONS: original links preserved -->
+    <section class="fade-up" style="text-align:center; padding: 1.25rem 0;">
+      <div class="socials" role="navigation" aria-label="Social links">
+        <!-- mailto link opens user's email client -->
+        <a href="mailto:sama.asheh2@gmail.com" target="_blank" rel="noopener noreferrer"><img src="images/gmail.gif" alt="Email Sama Asheh"></a>
+        <!-- Instagram link -->
+        <a href="https://instagram.com/sama_asheh" target="_blank" rel="noopener noreferrer"><img src="images/instagram.gif" alt="Instagram"></a>
+        <!-- TikTok link -->
+        <a href="https://tiktok.com/@sama.asheh1" target="_blank" rel="noopener noreferrer"><img src="images/tiktok.gif" alt="TikTok"></a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER: copyright preserved and year updated to 2025 as in original -->
+  <footer>
+    &copy; 2025 Sama Asheh. All rights reserved.
+  </footer>
+
+  <!-- LIGHTBOX: hidden by default; becomes visible when .visible is added -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <!-- Close control -->
+    <span class="close" aria-label="Close">&times;</span>
+    <!-- Prev/next navigation -->
+    <span class="nav prev" aria-label="Previous">&#10094;</span>
+    <img id="lightbox-img" src="" alt="">
+    <span class="nav next" aria-label="Next">&#10095;</span>
+    <!-- Caption pulled from the image alt attribute -->
+    <p class="caption" id="lightbox-caption"></p>
+  </div>
+
+  <!--
+    Inline JavaScript handles interactions:
+    - fade-in on scroll (IntersectionObserver)
+    - gallery toggle
+    - lightbox open/close/navigation
+    - form mailto submission
+  -->
+  <script>
+    /* ------------------------- SETUP: select DOM elements ------------------------- */
+    // Get all elements that should fade-up when scrolled into view
+    const fadeEls = document.querySelectorAll('.fade-up');
+
+    // Gallery / lightbox elements
+    const galleryContainer = document.getElementById('galleryContainer');
+    const arrowIcon = document.getElementById('arrow');
+    const galleryImages = document.querySelectorAll('.gallery img'); // live list of imgs inside .gallery
+
+    // Lightbox controls and display elements
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.lightbox .close');
+    const prevBtn = document.querySelector('.lightbox .nav.prev');
+    const nextBtn = document.querySelector('.lightbox .nav.next');
+
+    /* ------------------------- FADE-UP ON SCROLL (IntersectionObserver) ------------------------- */
+    // Create an IntersectionObserver to toggle .visible when elements enter viewport
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible'); // reveal element
+          // Optionally unobserve if you only want the animation once
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 }); // when ~12% of the element is visible
+
+    // Observe all fade-up elements
+    fadeEls.forEach(el => observer.observe(el));
+
+    /* ------------------------- GALLERY TOGGLE ------------------------- */
+    // Toggle the gallery open/closed and rotate arrow
+    function toggleGallery() {
+      // flip a CSS class that controls max-height
+      galleryContainer.classList.toggle('open');
+      // rotate arrow for visual feedback
+      arrowIcon.classList.toggle('rotate');
+      // update aria-expanded on the toggle (for accessibility)
+      const expanded = galleryContainer.classList.contains('open');
+      document.querySelector('.gallery-toggle').setAttribute('aria-expanded', expanded);
+      // if opened, scroll to the gallery smoothly after a short delay
+      if (expanded) setTimeout(() => galleryContainer.scrollIntoView({ behavior: 'smooth' }), 280);
+    }
+
+    /* ------------------------- LIGHTBOX BEHAVIOR ------------------------- */
+    // Track which image index is currently open in lightbox
+    let currentIndex = 0;
+
+    // Helper: open lightbox at a given index
+    function openLightbox(index) {
+      // save current index
+      currentIndex = index;
+      // set src and alt from the clicked image
+      const img = galleryImages[index];
+      lightboxImg.src = img.src; // preserve original path
+      lightboxImg.alt = img.alt || '';
+      lightboxCaption.textContent = img.alt || '';
+      // reveal the modal
+      lightbox.classList.add('visible');
+      lightbox.setAttribute('aria-hidden', 'false');
+    }
+
+    // Helper: close lightbox and clear image to free memory
+    function closeLightbox() {
+      lightbox.classList.remove('visible');
+      lightbox.setAttribute('aria-hidden', 'true');
+      // remove src to stop video/image decoding on some browsers
+      lightboxImg.src = '';
+      lightboxCaption.textContent = '';
+    }
+
+    // Next image (wraps around)
+    function showNext() { openLightbox((currentIndex + 1) % galleryImages.length); }
+    // Previous image (wraps around)
+    function showPrev() { openLightbox((currentIndex - 1 + galleryImages.length) % galleryImages.length); }
+
+    // Add click listeners to gallery images to open lightbox
+    galleryImages.forEach((img, i) => {
+      img.addEventListener('click', () => openLightbox(i));
+    });
+
+    // Lightbox control listeners
+    closeBtn.addEventListener('click', closeLightbox);
+    nextBtn.addEventListener('click', showNext);
+    prevBtn.addEventListener('click', showPrev);
+
+    // Close when clicking outside the image (on the overlay)
+    lightbox.addEventListener('click', (e) => {
+      // if the click target is the overlay (lightbox) itself, close
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard navigation: Esc to close, arrows to navigate
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('visible')) return; // ignore unless lightbox is open
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') showNext();
+      if (e.key === 'ArrowLeft') showPrev();
+    });
+
+    /* ------------------------- FORM SUBMISSION (mailto) ------------------------- */
+    // Build a mailto link and open user's default email client with prefilled fields
+    function sendRequestEmail() {
+      // grab form values
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const description = document.getElementById('description').value.trim();
+      const payment = document.getElementById('payment').value;
+
+      // build subject/body (URL-encoded)
+      const subject = encodeURIComponent('Artwork Request from ' + name);
+      const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nArtwork Description:\n${description}\n\nPreferred Payment Method: ${payment}`);
+
+      // small confirmation for the visitor before opening their mail client
+      // Using confirm() gives the user a chance to cancel if the info isn't ready
+      if (!confirm('Open your email client to send the artwork request?')) return false;
+
+      // Navigate to a mailto: URL which opens the default email client
+      window.location.href = `mailto:sama.asheh2@gmail.com?subject=${subject}&body=${body}`;
+
+      // Prevent actual form submission
+      return false;
+    }
+
+    /* ------------------------- OPTIONAL: Improve image loading performance ------------------------- */
+    // Use lazy-loading attribute for gallery images when supported
+    // If existing markup doesn't include loading="lazy", set it here
+    galleryImages.forEach(img => { if (!img.hasAttribute('loading')) img.setAttribute('loading', 'lazy'); });
+
+    /* ------------------------- ACCESSIBILITY NOTE ------------------------- */
+    // We set aria-hidden on the lightbox and aria-expanded on the toggle for screen readers.
+    // Consider adding focus trapping into the lightbox for an even better experience.
+  </script>
 </body>
 </html>
