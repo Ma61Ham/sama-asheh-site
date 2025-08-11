@@ -563,5 +563,39 @@
 
     // End of script
   </script>
+
+  <script>
+  const toggleBtn = document.getElementById('toggle-beyond-gallery');
+  const collapsible = document.getElementById('beyond-gallery-collapsible');
+  const arrow = document.getElementById('gallery-toggle-arrow');
+  const galleryItems = document.querySelectorAll('.art-gallery__item');
+
+  function toggleGallery() {
+    const isOpen = collapsible.classList.toggle('is-open');
+    toggleBtn.setAttribute('aria-expanded', isOpen);
+    collapsible.setAttribute('aria-hidden', !isOpen);
+    arrow.classList.toggle('is-rotated', isOpen);
+
+    if (isOpen) {
+      // Animate fade-in stagger on each gallery item
+      galleryItems.forEach((item, i) => {
+        item.style.setProperty('--delay', (i * 0.08) + 's');
+        item.classList.add('is-visible');
+      });
+    } else {
+      galleryItems.forEach(item => item.classList.remove('is-visible'));
+    }
+  }
+
+  toggleBtn.addEventListener('click', toggleGallery);
+
+  toggleBtn.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggleGallery();
+    }
+  });
+</script>
+
 </body>
 </html>
