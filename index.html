@@ -148,6 +148,45 @@
 
     footer#site-footer { text-align: center; padding: 1.25rem; color: #9a9a9a; font-size: 0.95rem; }
 
+    #galleryToggleBtn {
+  font-size: 0.75rem;              /* Smaller text */
+  padding: 6px 10px;               /* Compact button size */
+  background-color: rgba(0, 0, 0, 0.35); /* Soft transparency */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, opacity 0.3s ease;
+  position: fixed;                 /* Anchored position */
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  opacity: 0.8;                    /* Slight fade */
+}
+
+#galleryArrow {
+  transition: transform 0.3s ease;
+}
+
+.is-rotated {
+  transform: rotate(180deg);
+}
+
+#galleryArrow {
+  transition: transform 0.3s ease;
+}
+
+.is-rotated {
+  transform: rotate(180deg);
+}
+
+/* Hover effect for better feedback */
+#galleryToggleBtn:hover {
+  background-color: rgba(0, 0, 0, 0.55);
+  transform: scale(1.05);
+  opacity: 1;
+}
+
     /* Make interactive areas change cursor styling via JS by toggling class on body (see JS) */
     /* ---------- End of CSS ---------- */
   </style>
@@ -408,7 +447,8 @@
       galleryArrow.classList.toggle('is-rotated', isOpen); // rotate arrow visually
       galleryToggleBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false'); // accessibility
       galleryCollapsible.setAttribute('aria-hidden', isOpen ? 'false' : 'true'); // accessibility
-
+      galleryToggleBtn.classList.toggle('is-hidden', isOpen);
+      
       // If opening, scroll smoothly and dispatch a small animation sequence
       if (isOpen) {
         setTimeout(() => {
