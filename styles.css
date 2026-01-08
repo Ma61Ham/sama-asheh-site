@@ -259,6 +259,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
 }
 .product-card img {
   width: 100%;
@@ -281,6 +282,29 @@ a:hover {
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+}
+
+/* Sold-out products are desaturated and not clickable */
+.product-card.sold-out {
+  opacity: 0.55;
+  pointer-events: none;
+}
+.product-card.sold-out .btn-secondary {
+  background: #d8d3e1;
+  color: #8c7fae;
+  cursor: default;
+}
+/* A badge overlay for sold items */
+.product-card .sold-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(124, 107, 177, 0.85);
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.7rem;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
 }
 /* Journal posts */
 .journal-section {
