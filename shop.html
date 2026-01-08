@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Shop – Sama Asheh</title>
-  <meta name="description" content="Browse original surreal paintings and dreamy prints by artist Sama Asheh.">
+  <title>Sama Asheh – Shop Artwork</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,93 +10,118 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Decorative shapes for dreamy atmosphere -->
-  <div class="decorative-shape shape-one"></div>
-  <div class="decorative-shape shape-two"></div>
-  <nav class="main-nav">
-    <div class="nav-container">
-      <a href="index.html" class="logo">Sama Asheh</a>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="shop.html" class="active">Shop</a></li>
-        <li><a href="journal.html">Studio Journal</a></li>
-      </ul>
+  <!-- Header reused from index -->
+  <header class="main-header">
+    <div class="container nav-bar">
+      <h1 class="site-logo"><a href="index.html">Sama&nbsp;Asheh</a></h1>
+      <nav class="nav-menu">
+        <a href="index.html">Home</a>
+        <a href="shop.html" class="active">Shop</a>
+        <a href="journal.html">Studio Journal</a>
+      </nav>
     </div>
-  </nav>
-  <header class="page-hero">
-    <h1>Shop the Collection</h1>
-    <p>Discover originals and prints inspired by dreams.</p>
   </header>
-  <main>
-    <section class="shop-section">
-      <h2>Original Paintings</h2>
-      <div class="product-grid">
-        <!-- Product card: fill in details as needed -->
-        <article class="product-card">
-          <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World, Bleeding Land">
-          <h3>Blind World, Bleeding Land</h3>
-          <p class="price">$2,400</p>
-          <a href="mailto:sama.asheh2@gmail.com?subject=Original%20Painting%20Inquiry%20-%20Blind%20World%20Bleeding%20Land" class="btn btn-secondary">Inquire</a>
-        </article>
-        <article class="product-card sold-out">
-          <img src="images/Orphaned.jpg" alt="Orphaned">
-          <span class="sold-badge">Sold&nbsp;Out</span>
-          <h3>Orphaned</h3>
-          <p class="price">$1,950</p>
-          <a href="#" class="btn btn-secondary">Sold Out</a>
-        </article>
-        <article class="product-card sold-out">
-          <img src="images/Mister.PNG" alt="Mister">
-          <span class="sold-badge">Sold&nbsp;Out</span>
-          <h3>Mister</h3>
-          <p class="price">$1,700</p>
-          <a href="#" class="btn btn-secondary">Sold Out</a>
-        </article>
-        <article class="product-card">
-          <img src="images/Wets Hands.jpg" alt="Surviving Hands">
-          <h3>Surviving Hands</h3>
-          <p class="price">$2,100</p>
-          <a href="mailto:sama.asheh2@gmail.com?subject=Original%20Painting%20Inquiry%20-%20Surviving%20Hands" class="btn btn-secondary">Inquire</a>
-        </article>
+
+  <!-- Shop hero describes the collection and provides category tabs -->
+  <section class="shop-hero">
+    <div class="container shop-header">
+      <p class="tagline">Collection</p>
+      <h2 class="section-title">Shop Artwork</h2>
+      <p class="section-subtitle">Bring home a piece of original art or a high‑quality print to cherish forever.</p>
+      <div class="shop-toggle">
+        <button class="tab active" data-target="paintings">Original Paintings</button>
+        <button class="tab" data-target="prints">Prints</button>
       </div>
-    </section>
-    <section class="shop-section">
-      <h2>Prints</h2>
-      <div class="product-grid">
-        <!-- Prints use the same artworks but are offered at a lower price -->
-        <article class="product-card">
-          <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World Print">
-          <h3>Blind World – Print</h3>
-          <p class="price">$80</p>
-          <a href="mailto:sama.asheh2@gmail.com?subject=Print%20Inquiry%20-%20Blind%20World" class="btn btn-secondary">Inquire</a>
-        </article>
-        <article class="product-card sold-out">
-          <img src="images/Orphaned.jpg" alt="Orphaned Print">
-          <span class="sold-badge">Sold&nbsp;Out</span>
-          <h3>Orphaned – Print</h3>
-          <p class="price">$75</p>
-          <a href="#" class="btn btn-secondary">Sold Out</a>
-        </article>
-        <article class="product-card sold-out">
-          <img src="images/Mister.PNG" alt="Mister Print">
-          <span class="sold-badge">Sold&nbsp;Out</span>
-          <h3>Mister – Print</h3>
-          <p class="price">$70</p>
-          <a href="#" class="btn btn-secondary">Sold Out</a>
-        </article>
-        <article class="product-card">
-          <img src="images/Wets Hands.jpg" alt="Surviving Hands Print">
-          <h3>Surviving Hands – Print</h3>
-          <p class="price">$85</p>
-          <a href="mailto:sama.asheh2@gmail.com?subject=Print%20Inquiry%20-%20Surviving%20Hands" class="btn btn-secondary">Inquire</a>
-        </article>
+    </div>
+  </section>
+
+  <!-- Original paintings grid -->
+  <section id="paintings" class="shop-grid active">
+    <div class="container grid">
+      <!-- Blind World card -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World, Bleeding Land painting" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Blind World, Bleeding Land</h4>
+          <p class="medium">Original oil on canvas, 24” × 36”</p>
+          <p class="price">$2,500</p>
+        </div>
       </div>
-    </section>
-  </main>
+      <!-- Orphaned card (sold out) -->
+      <div class="product-card sold-out">
+        <div class="product-image">
+          <img src="images/Orphaned.jpg" alt="Orphaned painting" loading="lazy">
+          <span class="sold-overlay">Sold&nbsp;Out</span>
+        </div>
+        <div class="product-info">
+          <h4>Orphaned</h4>
+          <p class="medium">Original oil on canvas, 20” × 30”</p>
+          <p class="price"><span class="strike">$1,800</span></p>
+        </div>
+      </div>
+      <!-- Mister card (sold out) -->
+      <div class="product-card sold-out">
+        <div class="product-image">
+          <img src="images/Mister.PNG" alt="Mister painting" loading="lazy">
+          <span class="sold-overlay">Sold&nbsp;Out</span>
+        </div>
+        <div class="product-info">
+          <h4>Mister</h4>
+          <p class="medium">Original oil on canvas, 18” × 24”</p>
+          <p class="price"><span class="strike">$2,200</span></p>
+        </div>
+      </div>
+      <!-- Surviving Hands card -->
+      <div class="product-card">
+        <div class="product-image">
+          <img src="images/Surviving Hands.jpg" alt="Surviving Hands painting" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Surviving Hands</h4>
+          <p class="medium">Original oil on canvas, 30” × 40”</p>
+          <p class="price">$3,000</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Prints grid: you can duplicate or update items as needed -->
+  <section id="prints" class="shop-grid">
+    <div class="container grid">
+      <div class="product-card">
+        <div class="product-image">
+          <img src="images/Blind World, Bleeding Land.JPG" alt="Blind World print" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Blind World Print</h4>
+          <p class="medium">Fine art giclée print, 12” × 18”</p>
+          <p class="price">$120</p>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="images/Surviving Hands.jpg" alt="Surviving Hands print" loading="lazy">
+        </div>
+        <div class="product-info">
+          <h4>Surviving Hands Print</h4>
+          <p class="medium">Fine art giclée print, 12” × 18”</p>
+          <p class="price">$130</p>
+        </div>
+      </div>
+      <!-- Additional print items can be added here -->
+    </div>
+  </section>
+
+  <!-- Footer -->
   <footer class="site-footer">
-    <p>&copy; 2026 Sama Asheh. Dream with me.</p>
-    <p><a href="index.html">Back to Home</a></p>
+    <div class="container footer-content">
+      <p>&copy; 2026 Sama&nbsp;Asheh. All rights reserved.</p>
+      <p>Follow on <a href="https://www.instagram.com" target="_blank" rel="noopener">Instagram</a> &middot; <a href="https://www.twitter.com" target="_blank" rel="noopener">Twitter</a></p>
+    </div>
   </footer>
+
   <script src="scripts.js"></script>
 </body>
 </html>
