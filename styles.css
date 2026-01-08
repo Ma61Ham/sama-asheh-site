@@ -1,20 +1,20 @@
 /*
  * Global stylesheet for Sama Asheh's storefront styled after the Lovable example.
  * The palette uses warm neutrals and terracotta accents to evoke a calming,
- * handcrafted feel. Typography pairs Playfair Display for headings with
- * Inter for body copy.
+ * handcrafted feel. Typography pairs Cormorant Garamond for headings with
+ * DM Sans for body copy.
  */
 
 :root {
-  /* Colour palette */
-  --background: #f7f4ef;
-  --background-alt: #f8f3ef;
+  /* Colour palette (updated to match Lovable site) */
+  --background: #f8f5f1;
+  --background-alt: #f2ede6;
   --surface: #ffffff;
-  --text-primary: #3a2b24;
-  --text-secondary: #706055;
-  --accent: #c4745a;
-  --accent-light: #eadfd8;
-  --border: #e9dfd6;
+  --text-primary: #2a2422;
+  --text-secondary: #6c5d53;
+  --accent: #c55c39;
+  --accent-light: #f3e6df;
+  --border: #e6d9ce;
 }
 
 /* Reset box sizing and base typography */
@@ -24,7 +24,7 @@
 html, body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: 'DM Sans', sans-serif;
   background-color: var(--background);
   color: var(--text-primary);
 }
@@ -67,7 +67,7 @@ a {
   padding: 1rem 0;
 }
 .site-logo {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.8rem;
   font-weight: 700;
   margin: 0;
@@ -101,7 +101,7 @@ a {
   margin-bottom: 0.5rem;
 }
 .hero-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-weight: 700;
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin: 0.3rem 0 0.8rem;
@@ -134,7 +134,7 @@ a {
   color: #ffffff;
 }
 .btn-accent:hover {
-  background-color: #b1644d;
+  background-color: #b64f33;
 }
 .btn-secondary {
   background-color: var(--accent-light);
@@ -151,7 +151,7 @@ a {
   text-align: center;
 }
 .about-section h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2rem;
   margin-bottom: 0.8rem;
 }
@@ -180,7 +180,7 @@ a {
   text-align: center;
 }
 .callout-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.6rem;
   margin-top: 0;
   margin-bottom: 0.6rem;
@@ -219,7 +219,7 @@ a {
 }
 .social-links a:hover {
   text-decoration: underline;
-  color: #b1644d;
+  color: #b64f33;
 }
 
 /* Shop pages */
@@ -231,7 +231,7 @@ a {
   border-bottom: 1px solid var(--border);
 }
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 2.5rem;
   margin: 0.2rem 0 0.6rem;
   color: var(--text-primary);
@@ -263,7 +263,7 @@ a {
   color: #ffffff;
 }
 .shop-toggle .tab:hover:not(.active) {
-  background-color: #e0d6ce;
+  background-color: #e7dad2;
 }
 
 /* Back link on shop page */
@@ -281,6 +281,7 @@ a {
   text-decoration: underline;
 }
 
+/* Shop grids */
 .shop-grid {
   display: none;
   padding: 3rem 0;
@@ -316,7 +317,7 @@ a {
   flex-grow: 1;
 }
 .product-info h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
   margin: 0 0 0.5rem;
   color: var(--text-primary);
@@ -380,7 +381,7 @@ a {
   flex-grow: 1;
 }
 .journal-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Cormorant Garamond', serif;
   font-size: 1.3rem;
   margin: 0 0 0.4rem;
   color: var(--text-primary);
@@ -399,5 +400,5 @@ a {
 }
 .journal-read-more:hover {
   text-decoration: underline;
-  color: #b1644d;
+  color: #b64f33;
 }
